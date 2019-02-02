@@ -81,3 +81,16 @@ target_link_libraries(gcc64make hello world)
 #默认生成静态链接库 可以不加STATIC 生成后缀 .a
 #add_library(world ${DIR_WORLD_SRCS})
 #add_library(world STATIC ${DIR_WORLD_SRCS})
+
+
+#设置安装目录
+#IF(${CMAKE_INSTALL_PREFIX} STREQUAL "/usr/local")
+#    SET(CMAKE_INSTALL_PREFIX ../../..)
+#ENDIF()
+#MESSAGE("install prefix: " ${CMAKE_INSTALL_PREFIX})
+
+#INSTALL(TARGETS gcc64make DESTINATION bin)
+#INSTALL(DIRECTORY etc/ DESTINATION etc)
+
+# 或者
+#set(EXECUTABLE_OUTPUT_PATH ../../../../bin/)
