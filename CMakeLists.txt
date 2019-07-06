@@ -19,6 +19,14 @@ set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall -DNDEBUG")
 #在编译的时候，使用如下命令 path是顶层目录 如 ..
 #cmake -DCMAKE_BUILD_TYPE=Debug/Release  path
 
+SET(CMAKE_CXX_STANDARD 11)
+SET(COMMON_FLAGS "-fPIC -mavx2 -DLINUX -D_64_BIT_ -D_REENTRANT -w -fpermissive $ENV{PROFILE_ARCS_FLAG} -D_VERSION=$ENV{_VERSION}")
+
+SET(CMAKE_C_FLAGS_DEBUG "${COMMON_FLAGS} $ENV{CFLAGS}  -g3")
+SET(CMAKE_CXX_FLAGS_DEBUG "${COMMON_FLAGS} $ENV{CXXFLAGS} -g3 -std=c++11")
+SET(CMAKE_C_FLAGS_RELEASE "${COMMON_FLAGS} $ENV{CFLAGS} -O3")
+SET(CMAKE_CXX_FLAGS_RELEASE "${COMMON_FLAGS} $ENV{CXXFLAGS} -O3 -std=c++11")
+
 #使用系统的环境变量 $ENV{环境变量名} 系统通过export生成的环境变量
 #使用cmakelist中的变量 ${变量名}
 #设置环境变量 SET(ENV{变量名} 值)
